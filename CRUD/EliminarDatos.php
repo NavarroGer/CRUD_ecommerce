@@ -1,4 +1,7 @@
 <?php
+// Este archivo elimina un producto de la base de datos según el ID proporcionado.
+// Utiliza una consulta SQL DELETE para eliminar el registro.
+
     include("../Config/conDB.php");
 
 

@@ -60,13 +60,26 @@
                 <input type="text" class="form-control" name="nombre"> 
             </div>
          
-            <div class="text-center">
+            <form action="../CRUD/insertarDatos.php" method="POST" onsubmit="return confirmAdd();">
+                <!-- Campos del formulario -->
                 <button type="submit" class="btn btn-danger">Enviar</button>
                 <a href="../index.php" class="btn btn-dark">Volver</a>
-            </div>
+
+                <script>
+                    function confirmAdd() {
+                        return confirm("¿Estás seguro de que quieres agregar este producto?");
+                    }
+                </script>
+            </form>
+
+
+
         </form>
 </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+        crossorigin="anonymous">
+    </script>
   </body>
 </html>

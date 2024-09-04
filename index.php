@@ -28,6 +28,7 @@
   </thead>
   <tbody>
    <?php
+   // Incluye el archivo de configuración de la base de datos para establecer la conexión.
         require("Config/conDB.php");
 
         $sql = $conexion ->  query("SELECT * FROM productos
@@ -37,6 +38,7 @@
 
             while($resultado=$sql -> fetch_assoc()){
     ?>
+    
         <tr>
             <th scope="row"><?php echo $resultado['IdProducto']?></th>
             <th scope="row"><?php echo $resultado['NombreCategoria']?></th>
@@ -48,7 +50,14 @@
                 <a href="Formularios/EditarForm.php?Id= <?php echo $resultado['IdProducto']?>" 
                 class= "btn btn-warning">Editar</a>
 
-                <a href="CRUD/EliminarDatos.php?Id=<?php echo $resultado['IdProducto']?>" class= "btn btn-danger">Eliminar</a>
+                <a href="CRUD/EliminarDatos.php?Id=<?php echo $resultado['IdProducto']?>" 
+                class="btn btn-danger" onclick="return confirmDelete();">Eliminar</a>
+
+              <script>
+                function confirmDelete() {
+                return confirm("¿Estás seguro de que quieres eliminar este producto?");
+                }
+               </script>
 
             </th>
             
