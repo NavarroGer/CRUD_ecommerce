@@ -9,13 +9,17 @@
     $Descriocion = $_POST['Descripcion'];
     $Nombre = $_POST['Nombre'];
 
-    $sql = "UPDATE productos SET
+     //Las sentencias preparadas son la forma más eficaz de evitar la inyección SQL.
+    // En lugar de insertar directamente las variables dentro de la consulta SQL, 
+    //puedes utilizar marcadores de posición y enlazar los valores más tarde.
+    $stmt
+     = $conexion->prepare("UPDATE productos
+                                 SET CategoriaId = ?, MarcaId = ?, Precio = ?, DescripcionProducto = ?, Nombre = ? 
+                                 WHERE IdProducto = ?");
+    $stmt->bind_param("iisssi", $Categoria, $Marca, $Precio, $Descripcion, $Nombre, $id);
+    $stmt->execute();
+    $stmt->close();
     
-            CategoriaId = '".$Categoria."',
-            MarcaId = '".$Marca."',
-            Precio = '".$Precio."',
-            DescripcionProducto = '".$Descriocion."',
-            Nombre = '".$Nombre."' WHERE IdProducto = '".$id."'";
 
     if ($resultado = $conexion ->query($sql)) {
         header("location:../index.php");
