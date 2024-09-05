@@ -12,7 +12,7 @@
     <h1 class="bg-black p-2 text-white text-center">Agragar Producto</h1>
     <br>
     <div class="container">
-        <form action="../CRUD/insertarDatos.php" method="POST">
+        <form action="../CRUD/insertarDatos.php" method="POST" onsubmit="return confirmAdd();">
             <label for="">Categorias</label>
             <select class="form-select mb-3" name="CategoriaP">
                 <option selected>--Seleccionar--</option>
@@ -60,8 +60,9 @@
                 <input type="text" class="form-control" name="nombre"> 
             </div>
          
-            <form action="../CRUD/insertarDatos.php" method="POST" onsubmit="return confirmAdd();">
+           
                 <!-- Campos del formulario -->
+                 
                 <button type="submit" class="btn btn-danger">Enviar</button>
                 <a href="../index.php" class="btn btn-dark">Volver</a>
 
@@ -70,7 +71,7 @@
                         return confirm("¿Estás seguro de que quieres agregar este producto?");
                     }
                 </script>
-            </form>
+          
 
 
 

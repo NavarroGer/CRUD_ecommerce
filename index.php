@@ -17,7 +17,7 @@
   <table class="table">
   <thead>
     <tr>
-      <th scope="col">id</th>
+      <th scope="col">N° Prod</th>
       <th scope="col">Categoria</th>
       <th scope="col">Marca</th>
       <th scope="col">Precio</th>
